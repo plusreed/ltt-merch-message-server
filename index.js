@@ -195,7 +195,7 @@ const MessageHandler = {
         }
 
         if (message.response) {
-            delete message.show // This seems to glitch it out...
+            message.show = undefined // This seems to glitch it out...
         }
 
         return message
