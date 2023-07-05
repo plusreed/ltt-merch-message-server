@@ -81,16 +81,27 @@ for (const route of ['/', '/login', '/table', '/banner', '/popup', '/outro']) {
 
 app.post('/auth', (req, res) => {
     const { password } = req.body
+
+    // If the password is set to a wildcard, allow access no matter what
+    if (PASSWORD === '*') {
+        res.send({
+            isValid: true,
+            token: PASSWORD
+        })
+        return
+    }
+
     if (password === PASSWORD) {
         res.send({
             isValid: true,
             token: PASSWORD // stored in localStorage
         })
-    } else {
-        res.send({
-            isValid: false
-        })
+        return
     }
+
+    res.send({
+        isValid: false
+    })
 })
 
 app.get('/twitch', async (_req, res) => {
