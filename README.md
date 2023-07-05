@@ -1,4 +1,6 @@
-# tabellarius-api
+# ltt-merch-message-server
+
+> Formerly known as `tabellarius-api`.
 
 Implementation of the LTT Merch Messages server. BYOFE (Bring Your Own Front-End.)
 
