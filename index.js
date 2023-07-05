@@ -615,6 +615,10 @@ function setupReadlineDebugger () {
 }
 
 server.listen(PORT, () => {
+    if (PASSWORD === '*') {
+        console.log('WARNING: The password in the config is set to a wildcard. Any password will be accepted.')
+    }
+    
     console.log(`Host: http://localhost:${PORT}`)
     console.log('Routes:')
     printRoutes(app)
